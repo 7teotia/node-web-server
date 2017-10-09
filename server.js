@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 var app = express();
+var port = process.env.PORT || 3000;
 hbs.registerPartials(__dirname + '/template/partials');
 hbs.registerHelper('getTime', () => {
     return new Date().getFullYear();
@@ -28,8 +29,8 @@ app.use((req, res, next) => {
 })
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/template');
-app.listen(3000, undefined, () => {
-    console.log(`Server  has been started at port 3000`);
+app.listen(port, undefined, () => {
+    console.log(`Server  has been started at port ${port}`);
 
 })
 
