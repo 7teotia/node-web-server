@@ -20,12 +20,12 @@ app.use((req, res, next) => {
         if (err) console.log(`Unable to connect ${err}`);
 
     });
-    // next();
-    if (req.path === '/about') {
-        res.render('maintence')
-    } else {
-        next();
-    }
+    next();
+    // if (req.path === '/about') {
+    //     res.render('maintence')
+    // } else {
+    //     next();
+    // }
 })
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/template');
@@ -52,3 +52,9 @@ app.get('/about', (req, res) => {
         time: new Date().getFullYear()
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('portfolio.hbs', {
+        user: "sandeep"
+    })
+})
